@@ -387,10 +387,10 @@ function Dashboard() {
             </Tooltip>
           ))}
         </Box>
-      {/* )} */}
+        {/* )} */}
 
       {/* Drawer with content */}
-      {hamburgerOpen && (
+      {/* {hamburgerOpen && ( */}
         <Drawer
           variant="persistent"
           anchor="left"
@@ -406,7 +406,7 @@ function Dashboard() {
             <ContentComponent selected={selectedKey} />
           </Box>
         </Drawer>
-      )}
+      {/* )} */}
 
       {/* Main Content Area */}
       <Box

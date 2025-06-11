@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
-import Dashboard from "./Components/UserDashBoard";
+import Dashboard from "./Components/UserDashboard/UserDashboard";
 
 
 function App() {
