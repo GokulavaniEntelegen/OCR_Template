@@ -1,0 +1,5 @@
+@use '../../global_styles/typography' as *;
+
+.choose{
+    @include headline-small;
+}
