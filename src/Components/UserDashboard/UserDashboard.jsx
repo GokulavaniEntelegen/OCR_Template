@@ -66,7 +66,17 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 // import './tabletrycss.css';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
-import {ReactComponent as UploadCustomIcon} from "../../assets/Upload.svg"
+import {ReactComponent as UploadCustomIcon} from "../../assets/Upload.svg";
+import {ReactComponent as DashboardCustomIcon} from "../../assets/Dashboard.svg";
+import {ReactComponent as RecentExtractionIcon} from "../../assets/RecentExtraction.svg";
+import {ReactComponent as ReportIcon} from "../../assets/Report.svg";
+import {ReactComponent as CreateTemplateIcon} from "../../assets/CreateTemplate.svg";
+import {ReactComponent as SubscriptionIcon} from "../../assets/Subscription.svg";
+import {ReactComponent as HelpIcon} from "../../assets/Help.svg"
+import {ReactComponent as MainLogoIcon} from "../../assets/MainLogo.svg"
+import {ReactComponent as SettingsCustomIcon} from "../../assets/Setting.svg"
+import {ReactComponent as NotificationIcon} from "../../assets/Notification.svg"
+import PsaiImg from "../../assets/Psai.png";
 
 // VisuallyHiddenInput for file input (needed for the Upload button)
 const VisuallyHiddenInput = styled("input")({
@@ -202,10 +212,12 @@ function Dashboard() {
   const [selectedKey, setSelectedKey] = useState(null);
 
   const icons = [
-    { key: 'dashboard', icon: <DashboardIcon />, tooltip: 'Dashboard' },
-    { key: 'chat', icon: <ChatIcon />, tooltip: 'Chat' },
-    { key: 'cart', icon: <ShoppingCartIcon />, tooltip: 'Cart' },
-    { key: 'settings', icon: <SettingsIcon />, tooltip: 'Settings' },
+    { key: 'dashboard', icon: <DashboardCustomIcon/>, tooltip: 'Dashboard' },
+    { key: 'recent-extraction', icon: <RecentExtractionIcon/>, tooltip: 'Recent Extraction' },
+    { key: 'reports-download', icon: <ReportIcon/>, tooltip: 'Reports Download' },
+    { key: 'create-template', icon: <CreateTemplateIcon />, tooltip: 'Create Template' },
+    { key: 'subscription', icon: <SubscriptionIcon />, tooltip: 'Subscription' },
+    { key: 'help', icon: <HelpIcon />, tooltip: 'Help' },
   ];
 
   const toggleHamburger = () => {
@@ -353,8 +365,8 @@ function Dashboard() {
   return (
     <div className="container" style={{ display: "flex", padding: "0px 0px 50px 0px", width: "100%"}}>
         
-      <Box sx={{ display: 'flex', height: '100vh'}}>
-      {/* Hamburger Icon */}
+      {/* <Box sx={{ display: 'flex', height: '100vh'}}>
+      
       <IconButton
         onClick={toggleHamburger}
         sx={{
@@ -369,8 +381,8 @@ function Dashboard() {
         <LogoDevIcon/>
       </IconButton>
 
-      {/* Conditional Sidebar */}
-      {/* {hamburgerOpen && ( */}
+      
+    {hamburgerOpen && ( 
         <Box
           sx={{
             width: 60,
@@ -400,10 +412,10 @@ function Dashboard() {
             </Tooltip>
           ))}
         </Box>
-        {/* )} */}
+         )}
 
-      {/* Drawer with content */}
-      {/* {hamburgerOpen && ( */}
+    //   Drawer with content
+      {hamburgerOpen && ( 
         <Drawer
           variant="persistent"
           anchor="left"
@@ -419,9 +431,9 @@ function Dashboard() {
             <ContentComponent selected={selectedKey} />
           </Box>
         </Drawer>
-      {/* )} */}
+       )}
 
-      {/* Main Content Area */}
+    //   Main Content Area
       <Box
         sx={{
           flexGrow: 1,
@@ -434,8 +446,43 @@ function Dashboard() {
           transition: 'margin-left 0.3s',
         }}
       />
-      </Box>
+      </Box> */}
 
+      <Box sx={{ display: 'flex', height: '100vh', marginRight: "50px" }}>
+        <Box
+            sx={{
+            width: "52px",
+            height: '100vh',
+            backgroundColor: '#051235',
+            paddingTop: 3,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: "15px"
+            }}
+        >
+            <IconButton style={{display: "flex", alignItems: "center",marginBottom: "65px"}}><MainLogoIcon/></IconButton>
+            {icons.map(({ key, icon, tooltip }) => (
+            <Tooltip title={tooltip} placement="right" key={key}>
+                <IconButton
+                onClick={() => handleIconClick(key)}
+                sx={{
+                    color: selectedKey === key ? '#3399FF' : '#fff',
+                    marginY: 1,
+                }}
+                >
+                {icon}
+                </IconButton>
+            </Tooltip>
+            ))}
+        </Box>
+        </Box>
+
+      
       
         <div style={{width: "100%", display: "flex", flexDirection: "column"}}>
             <div className="topbar">
@@ -448,8 +495,8 @@ function Dashboard() {
                         width: "100%",
                         maxWidth: 400,
                         '& .MuiOutlinedInput-root': {
-                        borderRadius: '12px',
-                        backgroundColor: '#f0f0f0',
+                        borderRadius: '4px',
+                        backgroundColor: '#F4F4F4',
                         '& input': {
                             fontSize: '20px', // 👈 Increase text size here
                             marginLeft: "5px"
@@ -460,7 +507,7 @@ function Dashboard() {
                             paddingRight: "10px"
                         },
                         '&.Mui-focused fieldset': {
-                            borderColor: '#90caf9',
+                            border: "0.25px solid #C4C4C4",
                         },
                         },
                     }}
@@ -474,15 +521,15 @@ function Dashboard() {
                     />
                 </div>
                 <div className="settings-profile" style={{display: "flex",alignItems: "center"}}>
-                    <div style={{paddingRight: 20, paddingLeft: 20 , borderLeft: "1px solid lightgray"}}>
-                    <IconButton sx = {{color: "black",border: "1px solid lightgray", borderRadius: "18px"}}>
-                        <SettingsOutlinedIcon/>
+                    <div style={{paddingRight: 20, paddingLeft: 20 , borderLeft: "1px solid #F0F0F0"}}>
+                    <IconButton sx = {{color: "black",border: "1px solid lightgray", borderRadius: "18px", backgroundColor: "#F9F9F94D"}}>
+                        <SettingsCustomIcon/>
                     </IconButton>
                     </div>
 
-                    <div style={{paddingRight: 20, paddingLeft: 20 , borderLeft: "1px solid lightgray", borderRight: "1px solid lightgray"}}>
-                    <IconButton sx = {{color: "black",border: "1px solid lightgray", borderRadius: "18px"}}>
-                        <NotificationsActiveOutlinedIcon/>
+                    <div style={{paddingRight: 20, paddingLeft: 20 , borderLeft: "1px solid #F0F0F0", borderRight: "1px solid #F0F0F0"}}>
+                    <IconButton sx = {{color: "black",border: "1px solid lightgray", borderRadius: "18px", backgroundColor: ""}}>
+                        <NotificationIcon/>
                     </IconButton>
                     </div>
 
@@ -490,11 +537,11 @@ function Dashboard() {
                         display="flex"
                         alignItems="center"
                         sx={{
-                            padding: '8px 16px',
+                            padding: '3px 10px',
                             width: 'fit-content',
                             marginLeft: "20px",
                             borderRadius: "30px",
-                            border: "1px solid lightgray",
+                            border: "1px solid #F0F0F0",
                             marginRight: "30px"
                         }}
                         >
@@ -511,25 +558,30 @@ function Dashboard() {
             {/* Purple Gradient Banner/Card - Integrated here */}
             <div style={{padding: "50px 30px 0px 30px"}}>
             <Typography sx={{fontSize: "40px", fontWeight: "bold"}}>Hello Maria!</Typography>
-            <Typography variant="h6" sx={{color: "gray"}}>Simple Dummy text of the printing</Typography>
+            <Typography variant="h6" sx={{color: "#808080"}}>Simple Dummy text of the printing</Typography>
             <Paper className="violet-paper"
                 elevation={3}
                 sx={{
                 p: 4,
                 mt: 4, // Margin top to separate from AppBar
                 borderRadius: 2, // Rounded corners
-                background: 'linear-gradient(45deg, #6a11cb 30%, #2575fc 90%)', // Purple gradient
+                // background: 'linear-gradient(45deg, #6a11cb 30%, #2575fc 90%)', // Purple gradient
                 color: 'white',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-start', // Align content to the left as in the image
                 gap: 2,
                 mb: 4, // Margin bottom for spacing below the card
+
+                backgroundImage: `url(${PsaiImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: '50% 25.5%',
+                backgroundRepeat: 'no-repeat',
                 }}
             >
 
                 <div style={{display: "flex", gap: "70px", alignItems: "flex-start", flexDirection: "column", marginLeft: "15px"}}>
-                <Typography sx={{fontSize: "30px", color: "darkgray", width: "650px"}}>
+                <Typography sx={{fontSize: "30px", color: "#494A4E", width: "650px", fontWeight: "500"}}>
                 To get started by uploading contracts or importing contracts to apply the functionalities.
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2 }}>
