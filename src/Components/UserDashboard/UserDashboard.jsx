@@ -66,6 +66,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 // import './tabletrycss.css';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
+import {ReactComponent as UploadCustomIcon} from "../../assets/Upload.svg"
 
 // VisuallyHiddenInput for file input (needed for the Upload button)
 const VisuallyHiddenInput = styled("input")({
@@ -773,7 +774,7 @@ function Dashboard() {
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: "1000px",
+                    width: "900px",
                     height: "530px",
                     bgcolor: 'background.paper',
                     boxShadow: 24,
@@ -854,7 +855,7 @@ function Dashboard() {
                 </Box>
                 )}
 
-                { step ===1 && (
+                { step === 1 && (
                     <Box className = "step1">
                         <div className="st">
                         <div className="stepper">
@@ -933,6 +934,45 @@ function Dashboard() {
                             className="actions">Next</Button>
                         </div>
 
+                    </Box>
+                )}
+
+                { step === 2 && (
+                    <Box className = "step2">
+                        
+                        <div className="st">
+                        <div className="stepper">
+                        <ProgressStepper activeStep={2}/>
+                        </div>
+                        </div>
+                        
+                        <div className="choose">
+                        <p style={{fontWeight: 500}}>Upload your files</p>
+                        </div>
+
+                        <Box className = "upload-box">
+                            <Box><UploadCustomIcon /></Box>
+                            <Box sx = {{mt: "20px", textAlign: "center"}} className = "clickupl">
+                                <p><span style={{color: "#2B80EC"}}><u><a>Click to Upload</a></u></span>{' '}
+                                <span>or Drag and drop </span></p>
+                               <p>a contract PDF or Word doc</p>
+                            </Box>
+                        </Box>
+                        <p className="or">Or</p>
+                        <Box style = {{display: "flex", justifyContent: "center", marginTop: "20px"}}>
+                        <Button
+                            onClick={() => {setShowModal(false); setStep(0)}}
+                            variant="outlined"
+                            className="skipbutt" 
+                            style={{
+                                textTransform: "none", 
+                                fontSize: "18px", 
+                                padding: "10px 20px 10px 20px", 
+                                border: "1px solid gray"
+                                }} 
+                            >Skip
+                        </Button>
+                        </Box>
                     </Box>
                 )}
             </Box>
