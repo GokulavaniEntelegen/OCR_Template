@@ -1,5 +1,60 @@
 @use '../../global_styles/typography' as *;
 
+
 .choose{
     @include headline-small;
+    margin-top: 20px;
+}
+
+.stepper{
+    margin-bottom: 35px; 
+    margin-top: 20px;
+    width: 900px;
+}
+
+.st{
+    display: flex;
+    justify-content: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 2 columns
+  gap: 20px;
+  padding: 16px;
+  max-width: 1000px;
+  margin: 40px auto;
+  
+  p {
+        @include body-large;
+        color: #2B80EC;
+        font-size: larger;
+    }
+
+}
+
+.grid-item {
+  background-color: #F3F9FF;
+  border-radius: 8px;
+  padding: 20px 12px;
+  display: flex;
+  align-items: center;
+}
+
+// Center the last item
+.grid-item.center {
+  grid-column: 1 / -1;
+  justify-self: flex-start;
+  width: 100%; // optional: controls width of center item
+}
+
+.buttons{
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+
+    .actions{
+        @include label-large;
+        font-family: "Poppins"
+    }
 }

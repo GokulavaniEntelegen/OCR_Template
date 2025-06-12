@@ -1,10 +1,10 @@
-import { Button, Modal, Box, Typography } from "@mui/material";
+import { Button, Modal, Box, Typography, Grid, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
 import React, { useState } from "react";
 import ProgressStepper from "./ProgressStepper";
 import '@fontsource/roboto'; // Loads default weight (400)
 import "./modaltr.scss";
-
-
+import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
+import '@fontsource/poppins';
 
 function ModalTrial() {
     const [showModal, setShowModal] = useState(false);
@@ -15,6 +15,7 @@ function ModalTrial() {
             >
             Open Modal
             </Button>
+            
             <Modal open = {showModal}>
                 <Box
                 sx={{
@@ -22,23 +23,66 @@ function ModalTrial() {
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: "1020px",
-                    height: "570px",
+                    width: "1000px",
+                    height: "530px",
                     bgcolor: 'background.paper',
                     boxShadow: 24,
-                    p: 4,
-                    borderRadius: 2,
+                    p: 6,
+                    borderRadius: 4,
                 }}
                 >
-                <div style = {{marginBottom: "20px"}}>
-                <ProgressStepper activeStep={1}/>
+                <div className="st">
+                <div className="stepper">
+                <ProgressStepper activeStep={0}/>
+                </div>
                 </div>
                 <div className="choose">
                 <p style={{fontWeight: 500}}>Choose the contract type</p>
                 </div>
-                <Typography sx={{ mt: 2 }}>
-                    You can put forms, text, buttons here.
-                </Typography>
+                
+
+                <div className="grid-container">
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Vendor & Sales Contracts</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Lease Contracts</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>NDAs</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Employment Contracts</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item center" sx={{py: "14px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Create a custom contract types</p>}/>
+                </ListItem>
+                </div>
+
+                <div className="buttons">
+                    <Button variant="outlined" style={{textTransform: "none", fontSize: "18px", padding: "10px 20px 10px 20px", border: "1px solid gray"}} className="actions">Cancel</Button>
+                    <Button variant="contained" style={{textTransform: "none",  fontSize: "18px", padding: "10px 25px 10px 25px"}} className="actions">Next</Button>
+                </div>
+
                 </Box>
             </Modal>
         </div>

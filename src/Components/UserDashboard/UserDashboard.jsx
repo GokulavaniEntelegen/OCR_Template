@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import './UserDashboard.css';
+import './UserDashboard.scss';
+import FileOpenOutlinedIcon from '@mui/icons-material/FileOpenOutlined';
+import { Grid, List, ListItem} from "@mui/material";
+import ProgressStepper from "./ProgressStepper";
+import '@fontsource/roboto'; // Loads default weight (400)
+import '@fontsource/poppins';
 import {
   AppBar,
   Toolbar,
@@ -17,7 +22,8 @@ import {
   ListItemIcon,
   ListItemText,
   Button,
-  Avatar // Added Button import for the card
+  Avatar, // Added Button import for the card
+  Modal
 } from "@mui/material";
 import { styled } from "@mui/material/styles"; // Added styled for VisuallyHiddenInput
 import {
@@ -337,6 +343,9 @@ function Dashboard() {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
 
+    const [showModal, setShowModal] = useState(false);
+    const [step, setStep] = useState(0);
+
   return (
     <div className="container" style={{ display: "flex", padding: "0px 0px 50px 0px", width: "100%"}}>
         
@@ -528,7 +537,8 @@ function Dashboard() {
                     <Button
                     variant="contained"
                     startIcon={<AddIcon/>}
-                    component = "label"
+                    // component = "label"
+                    onClick={() => {setShowModal(true)}}
                     // No 'disabled' or 'loading' state here as this is just a navigation button
                     sx={{
                         // bgcolor: 'white', // White background for button
@@ -546,11 +556,11 @@ function Dashboard() {
                     >
                     Upload
                     {/* VisuallyHiddenInput is here, but its onChange won't trigger actual upload in Dashboard */}
-                    <VisuallyHiddenInput
+                    {/* <VisuallyHiddenInput
                         type="file"
                         accept=".pdf,.docx,.csv" // Example accept types
                         onClick={handleFileChange} // Placeholder handler
-                    />
+                    /> */}
                     </Button>
                 {/* </MuiLink> */}
                 <Button
@@ -752,6 +762,107 @@ function Dashboard() {
 
             </Box>
         </div>
+
+        <Modal open = {showModal}>
+            <Box
+                sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: "1000px",
+                    height: "530px",
+                    bgcolor: 'background.paper',
+                    boxShadow: 24,
+                    p: 6,
+                    borderRadius: 4,
+                }}
+                >
+                { step === 0 && (
+                <Box className = "step0">
+                <div className="st">
+                <div className="stepper">
+                <ProgressStepper activeStep={0}/>
+                </div>
+                </div>
+                <div className="choose">
+                <p style={{fontWeight: 500}}>Choose the contract type</p>
+                </div>
+                
+
+                <div className="grid-container">
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Vendor & Sales Contracts</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Lease Contracts</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>NDAs</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item" sx={{py: "18px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Employment Contracts</p>}/>
+                </ListItem>
+
+                <ListItem className="grid-item center" sx={{py: "14px"}}>
+                    <ListItemIcon>
+                    <FileOpenOutlinedIcon color="primary" />
+                    </ListItemIcon>
+                    <ListItemText primary={<p>Create a custom contract types</p>}/>
+                </ListItem>
+                </div>
+
+                <div className="buttons">
+                    <Button
+                    onClick={() => {setShowModal(false)}}
+                    variant="outlined"
+                    style={{
+                        textTransform: "none", 
+                        fontSize: "18px", 
+                        padding: "10px 20px 10px 20px", 
+                        border: "1px solid gray"
+                        }} 
+                    className="actions">Cancel</Button>
+                    <Button
+                    onClick={() => { setStep((prev) => prev + 1)}}
+                    variant="contained"
+                    style={{
+                        textTransform: "none", 
+                        fontSize: "18px", 
+                        padding: "10px 25px 10px 25px"
+                        }} 
+                    className="actions">Next</Button>
+                </div>
+                </Box>
+                )}
+
+                { step ===1 && (
+                    <Box className = "step1">
+                        <div className="st">
+                        <div className="stepper">
+                        <ProgressStepper activeStep={1}/>
+                        </div>
+                        </div>
+                    </Box>
+                )}
+            </Box>
+        </Modal>
+
 
     </div>
   );
