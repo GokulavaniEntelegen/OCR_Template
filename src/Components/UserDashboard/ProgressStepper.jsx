@@ -2,7 +2,7 @@ import React from 'react';
 import { Stepper, Step, StepLabel, Box } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 
-const steps = [1, 2, 3, 4, 5];
+const steps = [1, 2, 3];
 
 const CustomStepIcon = (props) => {
   const { active, completed, className } = props;

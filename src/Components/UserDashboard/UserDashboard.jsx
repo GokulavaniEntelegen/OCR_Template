@@ -149,7 +149,10 @@ const CellWithFlag = ({ flag, children }) => {
     );
 };
 
+const items = ["Contact No.", "Customer Name", "Customer Title", "Start Date", "End Date", "Auto Renewal Term", "Payment Term", "Termination Claus", "Tags"];
+
 function Dashboard() {
+
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [userName, setUserName] = useState("Static User"); // Default to Static Use
@@ -858,6 +861,78 @@ function Dashboard() {
                         <ProgressStepper activeStep={1}/>
                         </div>
                         </div>
+                        <div className="choose">
+                        <p style={{fontWeight: 500}}>New Extraction</p>
+                        </div>
+                        <div className="descopt">
+                            <p>Description</p>
+                            <p style={{color: "gray"}}>(Optional)</p>
+                        </div>
+                        <Box className = "descbox">
+                            <TextField
+                                variant="outlined"
+                                fullWidth
+                                multiline
+                                minRows={4}
+                                maxRows={8}
+                                placeholder="Enter your description here..."
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                    borderRadius: '10px',
+                                    backgroundColor: '#EFF8FF', // light blue background
+                                    '& fieldset': {
+                                        borderColor: '#2B80EC', // blue border
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: '#2B80EC', // darker blue on hover
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: '#2B80EC', // even darker blue when focused
+                                    },
+                                    },
+                                    '& .MuiInputBase-input::placeholder': {
+                                    fontSize: '18px', // increase placeholder size
+                                    color: '#555',
+                                    },
+                                }}
+                            />
+                        </Box>
+
+                        <Box className = "content-container">
+                            {items.map((item, index) => (
+                                <Box className = "content">{item}</Box>
+                            ))}
+                            <Button
+                            variant="text"
+                            startIcon = {<AddIcon/>}
+                            sx={{textTransform: "none", fontSize: "18px", color: "#1093FF"}}
+                            >
+                                Add another
+                            </Button>
+                        </Box>
+
+                        <div className="buttons">
+                            <Button
+                            onClick={() => {setShowModal(false); setStep(0)}}
+                            variant="outlined"
+                            style={{
+                                textTransform: "none", 
+                                fontSize: "18px", 
+                                padding: "10px 20px 10px 20px", 
+                                border: "1px solid gray"
+                                }} 
+                            className="actions">Cancel</Button>
+                            <Button
+                            onClick={() => { setStep((prev) => prev + 1)}}
+                            variant="contained"
+                            style={{
+                                textTransform: "none", 
+                                fontSize: "18px", 
+                                padding: "10px 25px 10px 25px"
+                                }} 
+                            className="actions">Next</Button>
+                        </div>
+
                     </Box>
                 )}
             </Box>
