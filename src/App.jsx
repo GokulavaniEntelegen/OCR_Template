@@ -1,10 +1,11 @@
-
+import ContractScan from "./components/Edit/ContractScan"
 
 function App() {
 
   return (
     <>
-      <div>Front End Template</div>
+      
+      <ContractScan/>
     </>
   )
 }
