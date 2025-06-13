@@ -1,8 +1,25 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import loginImage from "./assets/image-1.png"; // Ensure this path is correct
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import loginImage from "./assets/image-1.png";
 
 const LoginRight = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    pauseOnHover: true,
+  };
+
+  const images = [loginImage, loginImage, loginImage]; // using same image 3 times
+
   return (
     <Box
       sx={{
@@ -14,20 +31,34 @@ const LoginRight = () => {
         justifyContent: "center",
         padding: 4,
         textAlign: "center",
-        fontFamily : 'poppins,sans-serif'
+        fontFamily: "Poppins, sans-serif",
       }}
     >
-      <img
-        src={loginImage}
-        alt="Charts Illustration"
-        style={{ maxWidth: "100%", marginBottom: "1.5rem" }}
-      />
+      <Box sx={{ width: "100%", maxWidth: 400, mb: 3 }}>
+        <Slider {...settings}>
+          {images.map((img, index) => (
+            <Box key={index}>
+              <img
+                src={img}
+                alt={`Slide ${index + 1}`}
+                style={{ width: "100%", borderRadius: "8px" }}
+              />
+            </Box>
+          ))}
+        </Slider>
+      </Box>
 
-      <Typography variant="h5" sx={{ fontWeight: 600, marginBottom: 1 , fontFamily: "Poppins, sans-serif"}}>
+      <Typography
+        variant="h5"
+        sx={{ fontWeight: 600, marginBottom: 1, fontFamily: "Poppins, sans-serif" }}
+      >
         Upload Invoice
       </Typography>
 
-      <Typography variant="body1" sx={{ color: "#555", maxWidth: 300, fontFamily: "Poppins, sans-serif"}}>
+      <Typography
+        variant="body1"
+        sx={{ color: "#555", maxWidth: 300, fontFamily: "Poppins, sans-serif" }}
+      >
         Click 'Upload Invoice', choose your file, and hit 'Save' to securely store
         your invoice for easy access later!
       </Typography>
@@ -35,25 +66,25 @@ const LoginRight = () => {
       <Box sx={{ display: "flex", gap: 1, marginTop: 3 }}>
         <Box
           sx={{
-            width: 10,
-            height: 10,
-            borderRadius: "50%",
+            width: 100,
+            height: 5,
+            borderRadius: "10px",
             backgroundColor: "#007bff",
           }}
         />
         <Box
           sx={{
-            width: 10,
-            height: 10,
-            borderRadius: "50%",
+            width: 100,
+            height: 5,
+            borderRadius: "10px",
             backgroundColor: "#ccc",
           }}
         />
         <Box
           sx={{
-            width: 10,
-            height: 10,
-            borderRadius: "50%",
+            width: 100,
+            height: 5,
+            borderRadius: "10px",
             backgroundColor: "#ccc",
           }}
         />
