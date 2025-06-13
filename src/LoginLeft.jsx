@@ -1,6 +1,5 @@
 import { Box, Typography, TextField, Button, Divider } from "@mui/material";
 import GoogleIcon from "./assets/leading icon.svg"; // Optional: Or use image if needed
-
 const LoginLeft = () => {
   return (
     <Box
