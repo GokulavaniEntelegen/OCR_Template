@@ -4,6 +4,7 @@ import LoginLeft from './LoginLeft';
 import ResetPassword from './ResetPassword';
 
 import OtpLogin from './OtpLogin';
+import CreateAccount from './CreateAccount';
 function App() {
 
   return (
@@ -14,7 +15,9 @@ function App() {
           <Route path="/" element={<GoogleSignIn />}>
             <Route index element={<LoginLeft />} />
              <Route path="reset-password" element={<ResetPassword />} />
-            <Route path='/otp-login' element={<OtpLogin></OtpLogin>}/>
+             <Route path='/otp-login' element={<OtpLogin/>}/>
+             <Route path ="/create-account" element = {<CreateAccount/>}>
+          </Route>
           </Route>
         </Routes>
       </div>

@@ -1,0 +1,12 @@
+@use "../global_styles/typography.scss" as *;
+
+.welcome {
+    font-family: Poppins;
+    font-weight: 400px;
+    font-size: 22px;
+}
+
+.create {
+    @include display-small;
+    font-weight: 500;
+}
