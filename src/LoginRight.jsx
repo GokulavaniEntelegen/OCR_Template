@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,8 +6,9 @@ import "slick-carousel/slick/slick-theme.css";
 import loginImage from "./assets/image-1.png";
 
 const LoginRight = () => {
+  const [currentSlide, setCurrentSlide] = useState(0); // Track active slide
+
   const settings = {
-    dots: true,
     infinite: true,
     speed: 600,
     slidesToShow: 1,
@@ -16,15 +17,16 @@ const LoginRight = () => {
     autoplaySpeed: 3000,
     arrows: false,
     pauseOnHover: true,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex), // Update slide index
   };
 
-  const images = [loginImage, loginImage, loginImage]; // using same image 3 times
+  const images = [loginImage, loginImage, loginImage];
 
   return (
     <Box
       sx={{
         width: "50%",
-        backgroundColor: "#f0f4f8",
+        backgroundColor: "#E4F4FF",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -64,30 +66,18 @@ const LoginRight = () => {
       </Typography>
 
       <Box sx={{ display: "flex", gap: 1, marginTop: 3 }}>
-        <Box
-          sx={{
-            width: 100,
-            height: 5,
-            borderRadius: "10px",
-            backgroundColor: "#007bff",
-          }}
-        />
-        <Box
-          sx={{
-            width: 100,
-            height: 5,
-            borderRadius: "10px",
-            backgroundColor: "#ccc",
-          }}
-        />
-        <Box
-          sx={{
-            width: 100,
-            height: 5,
-            borderRadius: "10px",
-            backgroundColor: "#ccc",
-          }}
-        />
+        {[0, 1, 2].map((i) => (
+          <Box
+            key={i}
+            sx={{
+              width: 100,
+              height: 5,
+              borderRadius: "10px",
+              backgroundColor: currentSlide === i ? "#2B80EC" : "#BDDCF0",
+              transition: "background-color 0.3s ease",
+            }}
+          />
+        ))}
       </Box>
     </Box>
   );
