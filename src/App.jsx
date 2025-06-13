@@ -4,6 +4,7 @@ import LoginLeft from './LoginLeft';
 import ResetPassword from './ResetPassword';
 
 import OtpLogin from './OtpLogin';
+import CreateNewPassword from './CreateNewPassword';
 function App() {
 
   return (
@@ -13,8 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<GoogleSignIn />}>
             <Route index element={<LoginLeft />} />
-             <Route path="reset-password" element={<ResetPassword />} />
+            <Route path="reset-password" element={<ResetPassword />} />
             <Route path='/otp-login' element={<OtpLogin></OtpLogin>}/>
+            <Route path="createnewpassword" element={<CreateNewPassword/>} />
           </Route>
         </Routes>
       </div>
