@@ -232,13 +232,15 @@ import LoginLeft from "./LoginLeft";
 import LoginRight from "./LoginRight";
 import "./styles/loginLeft.scss";
 import "./styles/loginRight.scss";
+import {Outlet} from "react-router-dom"
 
 
 const SignIn = () => {
   return (
     <div className="login-container">
       <div className="login-wrapper">
-      <LoginLeft />
+      {/* <LoginLeft /> */}
+        <Outlet/>
       <LoginRight />
       </div>
     </div>
