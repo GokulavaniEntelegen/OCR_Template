@@ -15,11 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<GoogleSignIn />}>
             <Route index element={<LoginLeft />} />
-             <Route path="reset-password" element={<ResetPassword />} />
+             <Route path="/reset-password" element={<ResetPassword />} />
              <Route path='/otp-login' element={<OtpLogin/>}/>
-             <Route path ="/create-account" element = {<CreateAccount/>}>
-            <Route path="createnewpassword" element={<CreateNewPassword/>} />
-          </Route>
+             <Route path ="/create-account" element = {<CreateAccount/>}/>
+            <Route path="/createnewpassword" element={<CreateNewPassword/>} />
           </Route>
         </Routes>
       </div>
