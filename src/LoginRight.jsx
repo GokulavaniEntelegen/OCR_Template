@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import loginImage from "./assets/image-1.png";
 
 const LoginRight = () => {
-  const [currentSlide, setCurrentSlide] = useState(0); // Track active slide
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
     infinite: true,
@@ -17,7 +17,7 @@ const LoginRight = () => {
     autoplaySpeed: 3000,
     arrows: false,
     pauseOnHover: true,
-    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex), // Update slide index
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
   };
 
   const images = [loginImage, loginImage, loginImage];

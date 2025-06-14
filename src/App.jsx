@@ -6,6 +6,7 @@ import ResetPassword from './ResetPassword';
 import OtpLogin from './OtpLogin';
 import CreateAccount from './CreateAccount';
 import CreateNewPassword from './CreateNewPassword';
+import Invite from './Invite';
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
              <Route path='/otp-login' element={<OtpLogin/>}/>
              <Route path ="/create-account" element = {<CreateAccount/>}/>
              <Route path="/createnewpassword" element={<CreateNewPassword/>} />
+             <Route path="/invite" element={<Invite/>}/>
           </Route>
         </Routes>
       </div>
