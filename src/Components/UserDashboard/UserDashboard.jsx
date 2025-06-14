@@ -66,16 +66,16 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 // import './tabletrycss.css';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
-import {ReactComponent as UploadCustomIcon} from "../../assets/Upload.svg";
-import {ReactComponent as DashboardCustomIcon} from "../../assets/Dashboard.svg";
-import {ReactComponent as RecentExtractionIcon} from "../../assets/RecentExtraction.svg";
-import {ReactComponent as ReportIcon} from "../../assets/Report.svg";
-import {ReactComponent as CreateTemplateIcon} from "../../assets/CreateTemplate.svg";
-import {ReactComponent as SubscriptionIcon} from "../../assets/Subscription.svg";
-import {ReactComponent as HelpIcon} from "../../assets/Help.svg"
-import {ReactComponent as MainLogoIcon} from "../../assets/MainLogo.svg"
-import {ReactComponent as SettingsCustomIcon} from "../../assets/Setting.svg"
-import {ReactComponent as NotificationIcon} from "../../assets/Notification.svg"
+import UploadCustomIcon from "../../assets/Upload.svg";
+import DashboardCustomIcon from "../../assets/Dashboard.svg";
+import RecentExtractionIcon from "../../assets/RecentExtraction.svg";
+import ReportIcon from "../../assets/Report.svg";
+import CreateTemplateIcon from "../../assets/CreateTemplate.svg";
+import SubscriptionIcon from "../../assets/Subscription.svg";
+import HelpIcon from "../../assets/Help.svg"
+import MainLogoIcon from "../../assets/MainLogo.svg"
+import SettingsCustomIcon from "../../assets/Setting.svg"
+import NotificationIcon from "../../assets/Notification.svg"
 import PsaiImg from "../../assets/Psai.png";
 
 // VisuallyHiddenInput for file input (needed for the Upload button)
@@ -212,12 +212,12 @@ function Dashboard() {
   const [selectedKey, setSelectedKey] = useState(null);
 
   const icons = [
-    { key: 'dashboard', icon: <DashboardCustomIcon/>, tooltip: 'Dashboard' },
-    { key: 'recent-extraction', icon: <RecentExtractionIcon/>, tooltip: 'Recent Extraction' },
-    { key: 'reports-download', icon: <ReportIcon/>, tooltip: 'Reports Download' },
-    { key: 'create-template', icon: <CreateTemplateIcon />, tooltip: 'Create Template' },
-    { key: 'subscription', icon: <SubscriptionIcon />, tooltip: 'Subscription' },
-    { key: 'help', icon: <HelpIcon />, tooltip: 'Help' },
+    { key: 'dashboard', icon: DashboardCustomIcon, tooltip: 'Dashboard' },
+    { key: 'recent-extraction', icon: RecentExtractionIcon, tooltip: 'Recent Extraction' },
+    { key: 'reports-download', icon: ReportIcon, tooltip: 'Reports Download' },
+    { key: 'create-template', icon: CreateTemplateIcon , tooltip: 'Create Template' },
+    { key: 'subscription', icon: SubscriptionIcon , tooltip: 'Subscription' },
+    { key: 'help', icon: HelpIcon , tooltip: 'Help' },
   ];
 
   const toggleHamburger = () => {
@@ -465,7 +465,7 @@ function Dashboard() {
             gap: "15px"
             }}
         >
-            <IconButton style={{display: "flex", alignItems: "center",marginBottom: "65px"}}><MainLogoIcon/></IconButton>
+            <IconButton style={{display: "flex", alignItems: "center",marginBottom: "65px",padding: "0px"}}><img src={MainLogoIcon} alt="icon" width={40} height={40} /></IconButton>
             {icons.map(({ key, icon, tooltip }) => (
             <Tooltip title={tooltip} placement="right" key={key}>
                 <IconButton
@@ -475,7 +475,7 @@ function Dashboard() {
                     marginY: 1,
                 }}
                 >
-                {icon}
+                <img src={icon} alt="icon" width={20} height={20} />
                 </IconButton>
             </Tooltip>
             ))}
@@ -522,14 +522,14 @@ function Dashboard() {
                 </div>
                 <div className="settings-profile" style={{display: "flex",alignItems: "center"}}>
                     <div style={{paddingRight: 20, paddingLeft: 20 , borderLeft: "1px solid #F0F0F0"}}>
-                    <IconButton sx = {{color: "black",border: "1px solid lightgray", borderRadius: "18px", backgroundColor: "#F9F9F94D"}}>
-                        <SettingsCustomIcon/>
+                    <IconButton style={{ display: "flex", alignItems: "center"}}>
+                    <img src={SettingsCustomIcon} alt="icon" width={23} height={23} />
                     </IconButton>
                     </div>
 
                     <div style={{paddingRight: 20, paddingLeft: 20 , borderLeft: "1px solid #F0F0F0", borderRight: "1px solid #F0F0F0"}}>
-                    <IconButton sx = {{color: "black",border: "1px solid lightgray", borderRadius: "18px", backgroundColor: ""}}>
-                        <NotificationIcon/>
+                    <IconButton style={{ display: "flex", alignItems: "center"}}>
+                    <img src={NotificationIcon} alt="icon" width={23} height={23} />
                     </IconButton>
                     </div>
 
@@ -557,8 +557,8 @@ function Dashboard() {
             {/* Removed the original Paper with "Welcome" and "Navigate" text */}
             {/* Purple Gradient Banner/Card - Integrated here */}
             <div style={{padding: "50px 30px 0px 30px"}}>
-            <Typography sx={{fontSize: "40px", fontWeight: "bold"}}>Hello Maria!</Typography>
-            <Typography variant="h6" sx={{color: "#808080"}}>Simple Dummy text of the printing</Typography>
+            <Typography sx={{fontSize: "40px", fontWeight: "bold", fontFamily: "Poppins"}}>Hello Maria!</Typography>
+            <Typography variant="h6" sx={{color: "#808080", fontFamily: "Poppins"}}>Simple Dummy text of the printing</Typography>
             <Paper className="violet-paper"
                 elevation={3}
                 sx={{
@@ -580,8 +580,8 @@ function Dashboard() {
                 }}
             >
 
-                <div style={{display: "flex", gap: "70px", alignItems: "flex-start", flexDirection: "column", marginLeft: "15px"}}>
-                <Typography sx={{fontSize: "30px", color: "#494A4E", width: "650px", fontWeight: "500"}}>
+                <div style={{display: "flex", gap: "50px", alignItems: "flex-start", flexDirection: "column", marginLeft: "15px"}}>
+                <Typography sx={{fontSize: "25px", color: "#494A4E", width: "650px", fontWeight: "500", fontFamily: "Poppins"}}>
                 To get started by uploading contracts or importing contracts to apply the functionalities.
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2 }}>
@@ -1003,7 +1003,9 @@ function Dashboard() {
                         </div>
 
                         <Box className = "upload-box">
-                            <Box><UploadCustomIcon /></Box>
+                            <Box><IconButton style={{ display: "flex", alignItems: "center", marginBottom: "65px" }}>
+                            <img src={UploadCustomIcon} alt="icon" width={24} height={24} />
+                            </IconButton></Box>
                             <Box sx = {{mt: "20px", textAlign: "center"}} className = "clickupl">
                                 <p><span style={{color: "#2B80EC"}}><u><a>Click to Upload</a></u></span>{' '}
                                 <span>or Drag and drop </span></p>
