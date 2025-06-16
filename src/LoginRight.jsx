@@ -25,7 +25,7 @@ const LoginRight = () => {
   return (
     <Box
       sx={{
-        width: "50%",
+        width: "60%",
         backgroundColor: "#E4F4FF",
         display: "flex",
         flexDirection: "column",
@@ -51,19 +51,37 @@ const LoginRight = () => {
       </Box>
 
       <Typography
-        variant="h5"
-        sx={{ fontWeight: 600, marginBottom: 1, fontFamily: "Poppins, sans-serif" }}
+        variant="h6"
+        sx={{ fontWeight:"bold", marginBottom: 1, fontFamily: "Poppins, sans-serif", fontSize: '22px', height: '32px' }}
       >
         Upload Invoice
       </Typography>
 
-      <Typography
+      {/* <Typography
         variant="body1"
-        sx={{ color: "#555", maxWidth: 300, fontFamily: "Poppins, sans-serif" }}
+        sx={{ color: "#000000", maxWidth: 360, fontFamily: "Poppins, sans-serif",fontWeight:400,fontSize:'16px',letterSpacing:'0.25px',lineHeight:'20px' }}
       >
         Click 'Upload Invoice', choose your file, and hit 'Save' to securely store
-        your invoice for easy access later!
+               your invoice for easy access later!
+
+      </Typography> */}
+
+      <Typography
+        variant="body1"
+        sx={{
+          color: "#000000",
+          maxWidth: 360,
+          fontFamily: "Poppins, sans-serif",
+          fontWeight: 400,
+          fontSize: "17px",
+          letterSpacing: "0.25px",
+          lineHeight: "20px",
+          text_Indent:"-2em"
+        }}
+      >
+        Click 'Upload Invoice', choose your file, and hit 'Save' to securely store your invoice for easy access later!
       </Typography>
+
 
       <Box sx={{ display: "flex", gap: 1, marginTop: 3 }}>
         {[0, 1, 2].map((i) => (

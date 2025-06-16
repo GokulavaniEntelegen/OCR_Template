@@ -27,7 +27,7 @@ const CreateNewPassword = () => {
       >
         <p
           style={{
-            fontSize: "36px",
+            fontSize: "33px",
             fontWeight: 400,
             marginBottom: "1px",
             fontFamily: "Poppins, sans-serif",
@@ -38,7 +38,7 @@ const CreateNewPassword = () => {
 
         <p
           style={{
-            fontSize: "17px",
+            fontSize: "15px",
             color: "#888",
             marginBottom: "10px",
             marginTop: '0px',
@@ -52,7 +52,7 @@ const CreateNewPassword = () => {
         <p
           style={{
             fontSize: "14px",
-            color: "#555",
+            color: "#606060",
             fontWeight: 500,
             alignSelf: "flex-start",
             marginBottom: "2px",
@@ -65,19 +65,24 @@ const CreateNewPassword = () => {
         <TextField
           type="password"
           variant="outlined"
+          placeholder="********************"
           fullWidth
           size="small"
           sx={{
             mb: 0,
             backgroundColor: "#fafafa",
             fontFamily: "Poppins, sans-serif",
+            '& .MuiInputBase-input::placeholder': {
+             color: '#42474E',
+             opacity: 1, // important to make sure the color is not faded
+             },
           }}
         />
 
         <p
           style={{
             fontSize: "14px",
-            color: "#555",
+            color: "#606060",
             fontWeight: 500,
             alignSelf: "flex-start",
             marginBottom: "1px",
@@ -90,12 +95,17 @@ const CreateNewPassword = () => {
         <TextField
           type="password"
           variant="outlined"
+          placeholder="********************"
           fullWidth
           size="small"
           sx={{
             mb: 4,
             backgroundColor: "#fafafa",
             fontFamily: "Poppins, sans-serif",
+            '& .MuiInputBase-input::placeholder': {
+             color: '#42474E',
+             opacity: 1, // important to make sure the color is not faded
+             },
           }}
         />
 

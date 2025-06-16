@@ -37,7 +37,7 @@ const LoginLeft = () => {
   </Box>
 
   <Box sx={{ display: "flex", flexDirection: "column", alignItems: "left" }}>
-    <Typography sx={{ fontWeight: 400 }}>No Account?</Typography>
+    <Typography sx={{ fontWeight: 400,color :"#8D8D8D"}}>No Account?</Typography>
     <Typography
       sx={{ color: "#1a73e8", fontWeight: 500, cursor: "pointer" }}
     >
@@ -52,7 +52,7 @@ const LoginLeft = () => {
       </Typography> */}
 
       <Box component="form" noValidate sx={{ fontFamily: 'Poppins, sans-serif', display: "flex", flexDirection: "column" }}>
-        <Typography variant="body2" mb={0.4}  sx={{ fontFamily: 'Poppins, sans-serif' }}>
+        <Typography variant="body2" mb={0.4}  sx={{ fontFamily: 'Poppins, sans-serif',color :"#606060" }}>
           Enter your username or email address
         </Typography>
         <TextField
@@ -61,10 +61,14 @@ const LoginLeft = () => {
           type="email"
           fullWidth
           size="small"
-          sx={{ mb: 2 }}
+          sx={{ mb: 2,'& .MuiInputBase-input::placeholder': {
+             color: '#42474E',
+             fontFamily:"Poppins,sans-serif",
+             opacity: 1, // important to make sure the color is not faded
+             }, }}
         />
 
-        <Typography variant="body2" mb={0.5} sx={{ fontFamily: 'Poppins, sans-serif' }}>
+        <Typography variant="body2" mb={0.5} sx={{ fontFamily: 'Poppins, sans-serif',color :"#606060"}}>
           Password
         </Typography>
         <TextField
@@ -73,14 +77,19 @@ const LoginLeft = () => {
           type="password"
           fullWidth
           size="small"
-          sx={{ mb: 1 }}
+          sx={{mb: 1,'& .MuiInputBase-input::placeholder': {
+             color: '#42474E',
+             opacity: 1, // important to make sure the color is not faded
+             },
+          }}
+          
         />
 
         <Typography
           variant="caption"
           color="error"
           align="right"
-          sx={{ mb: 2, cursor: "pointer" , fontFamily: 'Poppins, sans-serif',fontWeight: "bold" }}
+          sx={{ mb: 2, cursor: "pointer" , fontFamily: 'Poppins, sans-serif',fontWeight: 400 ,color:" #FF0000"}}
         >
           Forgot Password
         </Typography>
@@ -92,7 +101,7 @@ const LoginLeft = () => {
         <Typography
           sx={{
             my: 0.5,
-            color: "#888",
+            color: "#000000",
             fontFamily: 'Poppins, sans-serif',
             textAlign: "center",
             fontSize: "14px",
@@ -116,7 +125,7 @@ const LoginLeft = () => {
           }
           sx={{
             backgroundColor: "#eaf2fe",
-            color: "#1a73e8",
+            color: "#1093FF",
             fontWeight: 500,
             textTransform: "none",
             padding: "10px 20px",

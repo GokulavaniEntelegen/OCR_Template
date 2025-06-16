@@ -36,7 +36,7 @@ const ResetPassword = () => {
             width: "100%",          // ensures same width as inputs
             maxWidth: "100%",       // makes sure it doesn't overflow
             textAlign: "center",     // keep heading centered
-            fontSize: '38px'
+            fontSize: '35px'
           }}
         >
           Reset Your Password
@@ -50,6 +50,7 @@ const ResetPassword = () => {
             color: "#888",
             fontFamily: "Poppins, sans-serif",
             alignSelf: "flex-start", // aligns label to the left of form
+            color: "#606060"
           }}
         >
           Enter your Email ID or mobile number
@@ -64,6 +65,12 @@ const ResetPassword = () => {
             mb: 3,
             backgroundColor: "#fafafa",
             fontFamily: "Poppins, sans-serif",
+            '& .MuiInputBase-input::placeholder': {
+             color: '#42474E',
+             fontFamily:"Poppins,sans-serif",
+             opacity: 1, // important to make sure the color is not faded
+             },
+            
           }}
         />
 
@@ -71,7 +78,7 @@ const ResetPassword = () => {
           variant="contained"
           fullWidth
           sx={{
-            backgroundColor: "#007bff",
+            backgroundColor: "#1093FF",
             textTransform: "none",
             fontWeight: 500,
             fontFamily: "Poppins, sans-serif",
