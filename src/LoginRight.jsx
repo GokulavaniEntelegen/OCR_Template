@@ -34,6 +34,7 @@ const LoginRight = () => {
         padding: 4,
         textAlign: "center",
         fontFamily: "Poppins, sans-serif",
+        
       }}
     >
       <Box sx={{ width: "100%", maxWidth: 400, mb: 3 }}>

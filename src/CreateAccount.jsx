@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import { Box, TextField, Button } from "@mui/material";
 import "./styles/CreateAccount.scss"
 import { Checkbox, FormControlLabel } from '@mui/material';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckIcon from '@mui/icons-material/Check';
 
 
-function CreateAccount () {
-    
+function CreateAccount() {
+
     const [name, setName] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [checked, setChecked] = useState(true);
-    
-    return(
+
+    return (
         <Box
-              sx={{
+            sx={{
                 width: "50%",
                 p: 8,
                 backgroundColor: "#fff",
@@ -24,203 +26,254 @@ function CreateAccount () {
                 fontFamily: 'Poppins,sans-serif',
                 mb: 1,
                 alignItems: "flex-start",
-              }}
-            >
-                <p className="welcome" style={{marginBottom: "7px"}}>Welcome to Contract Books</p>
-                <p className="create" style={{marginTop: "0px"}}>Create your account</p>
+            }}
+        >
+            <p className="welcome" style={{ marginBottom: "7px" }}>Welcome to Contract Books</p>
+            <p className="create" style={{ marginTop: "0px", }}>Create your account</p>
 
-                <div style={{width: "100%"}}>
-                    <p style={{margin: 0, fontSize: "12px", color: "#606060"}}>Full Name</p>
-                    <TextField
+            <div style={{ width: "100%" }}>
+                <p style={{ margin: 0, fontSize: "12px", color: "#606060" }}>Full Name</p>
+                <TextField
                     variant="outlined"
                     fullWidth
                     placeholder="Maria Gracia"
                     value={name}
-                    onChange={(event) => {setName(event.target.value)}}
+                    onChange={(event) => setName(event.target.value)}
                     sx={{
-                    color: "#42474E",
-                    '& .MuiOutlinedInput-root': {
-                    borderRadius: '4px',
-                    fontSize: '16px', // input text font size
-                    fontFamily: 'Poppins, sans-serif', // input font
-                    '& fieldset': {
-                        borderWidth: '0.5px', // controls the border thickness
-                        borderColor: '#C4C4C4',
-                    },
-                    '&:hover fieldset': {
-                        borderColor: '#999', // optional hover effect
-                    },
-                    '&.Mui-focused fieldset': {
-                        borderColor: '#000', // optional focus color
-                    },
-                    },
-                    '& .MuiOutlinedInput-input::placeholder': {
-                    color: '#42474E', // placeholder color
-                    fontSize: '14px', // placeholder size
-                    fontFamily: 'Poppins, sans-serif', // placeholder font
-                    fontWeight: "400"
-                    },
-                    '& .MuiOutlinedInput-input': {
-                    padding: '10px 12px', // inner padding for the text
-                    fontSize: '14px',     // optional font size
-                    },
-                    }}
-                    />
+                        '& .MuiOutlinedInput-root': {
+                            borderRadius: '4px',
+                            fontSize: '16px',
+                            fontFamily: 'Poppins, sans-serif',
+                            color: '#42474E',
+                            '& fieldset': {
+                                borderWidth: '0.5px',
+                                borderColor: '#C4C4C4',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#999',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#000',
+                            },
 
-                    <p style={{margin: 0, fontSize: "12px", color: "#606060", marginTop: "15px"}}>Company Name</p>
-                    <TextField
+                            // ✅ This is the key: target the input inside the root
+                            '& input::placeholder': {
+                                color: '#42474E',
+                                fontSize: '14px',
+                                fontFamily: 'Poppins, sans-serif',
+                                fontWeight: 400,
+                                opacity: 1, // ✅ REQUIRED for color to apply in some browsers
+                            },
+
+                            // Optional: input styling
+                            '& input': {
+                                padding: '10px 12px',
+                                fontSize: '14px',
+                                color: '#42474E',
+                            },
+                        },
+                    }}
+
+                />
+
+                <p style={{ margin: 0, fontSize: "12px", color: "#606060", marginTop: "15px" }}>Company Name</p>
+                <TextField
                     variant="outlined"
                     fullWidth
                     placeholder="Safe Net"
                     value={companyName}
-                    onChange={(event) => {setCompanyName(event.target.value)}}
+                    onChange={(event) => setCompanyName(event.target.value)}
                     sx={{
-                    color: "#42474E",
-                    '& .MuiOutlinedInput-root': {
-                    borderRadius: '4px',
-                    fontSize: '16px', // input text font size
-                    fontFamily: 'Poppins, sans-serif', // input font
-                    '& fieldset': {
-                        borderWidth: '0.5px', // controls the border thickness
-                        borderColor: '#C4C4C4',
-                    },
-                    '&:hover fieldset': {
-                        borderColor: '#999', // optional hover effect
-                    },
-                    '&.Mui-focused fieldset': {
-                        borderColor: '#000', // optional focus color
-                    },
-                    },
-                    '& .MuiOutlinedInput-input::placeholder': {
-                    color: '#42474E', // placeholder color
-                    fontSize: '14px', // placeholder size
-                    fontFamily: 'Poppins, sans-serif', // placeholder font
-                    fontWeight: "400"
-                    },
-                    '& .MuiOutlinedInput-input': {
-                    padding: '10px 12px', // inner padding for the text
-                    fontSize: '14px',     // optional font size
-                    },
+                        '& .MuiOutlinedInput-root': {
+                            borderRadius: '4px',
+                            fontSize: '16px',
+                            fontFamily: 'Poppins, sans-serif',
+                            color: "#42474E",
+                            '& fieldset': {
+                                borderWidth: '0.5px',
+                                borderColor: '#C4C4C4',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#999',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#000',
+                            },
+                        },
+                        '& .MuiInputBase-input::placeholder': {
+                            color: '#42474E',
+                            fontSize: '14px',
+                            fontFamily: 'Poppins, sans-serif',
+                            fontWeight: 400,
+                            opacity: 1, // optional but ensures placeholder visibility
+                        },
+                        '& input': {
+                            padding: '10px 12px',
+                            fontSize: '14px',
+                            color: '#42474E',
+                        },
                     }}
-                    />
+                />
 
-                    <p style={{margin: 0, fontSize: "12px", color: "#606060", marginTop: "15px"}}>Phone Number</p>
-                    <TextField
+
+                <p style={{ margin: 0, fontSize: "12px", color: "#606060", marginTop: "15px" }}>Phone Number</p>
+                <TextField
                     variant="outlined"
                     fullWidth
                     placeholder="+1 678 8956 678"
                     value={phoneNumber}
-                    onChange={(event) => {setPhoneNumber(event.target.value)}}
+                    onChange={(event) => setPhoneNumber(event.target.value)}
                     sx={{
-                    color: "#42474E",
-                    '& .MuiOutlinedInput-root': {
-                    borderRadius: '4px',
-                    fontSize: '16px', // input text font size
-                    fontFamily: 'Poppins, sans-serif', // input font
-                    '& fieldset': {
-                        borderWidth: '0.5px', // controls the border thickness
-                        borderColor: '#C4C4C4',
-                    },
-                    '&:hover fieldset': {
-                        borderColor: '#999', // optional hover effect
-                    },
-                    '&.Mui-focused fieldset': {
-                        borderColor: '#000', // optional focus color
-                    },
-                    },
-                    '& .MuiOutlinedInput-input::placeholder': {
-                    color: '#42474E', // placeholder color
-                    fontSize: '14px', // placeholder size
-                    fontFamily: 'Poppins, sans-serif', // placeholder font
-                    fontWeight: "400"
-                    },
-                    '& .MuiOutlinedInput-input': {
-                    padding: '10px 12px', // inner padding for the text
-                    fontSize: '14px',     // optional font size
-                    },
+                        '& .MuiOutlinedInput-root': {
+                            borderRadius: '4px',
+                            fontSize: '16px',
+                            fontFamily: 'Poppins, sans-serif',
+                            color: "#42474E",
+                            '& fieldset': {
+                                borderWidth: '0.5px',
+                                borderColor: '#C4C4C4',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#999',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#000',
+                            },
+                        },
+                        '& .MuiInputBase-input::placeholder': {
+                            color: '#42474E',
+                            fontSize: '14px',
+                            fontFamily: 'Poppins, sans-serif',
+                            fontWeight: 400,
+                            opacity: 1,
+                        },
+                        '& input': {
+                            padding: '10px 12px',
+                            fontSize: '14px',
+                            color: '#42474E',
+                        },
                     }}
-                    />
+                />
 
-                    <p style={{margin: 0, fontSize: "12px", color: "#606060", marginTop: "15px"}}>Email ID</p>
-                    <TextField
+
+                <p style={{ margin: 0, fontSize: "12px", color: "#606060", marginTop: "15px" }}>Email ID</p>
+                <TextField
                     variant="outlined"
                     fullWidth
                     placeholder="Gracia.m@safenet.com"
                     value={email}
-                    onChange={(event) => {setEmail(event.target.value)}}
+                    onChange={(event) => setEmail(event.target.value)}
                     sx={{
-                    color: "#42474E",
-                    '& .MuiOutlinedInput-root': {
-                    borderRadius: '4px',
-                    fontSize: '16px', // input text font size
-                    fontFamily: 'Poppins, sans-serif', // input font
-                    '& fieldset': {
-                        borderWidth: '0.5px', // controls the border thickness
-                        borderColor: '#C4C4C4',
-                    },
-                    '&:hover fieldset': {
-                        borderColor: '#999', // optional hover effect
-                    },
-                    '&.Mui-focused fieldset': {
-                        borderColor: '#000', // optional focus color
-                    },
-                    },
-                    '& .MuiOutlinedInput-input::placeholder': {
-                    color: '#42474E', // placeholder color
-                    fontSize: '14px', // placeholder size
-                    fontFamily: 'Poppins, sans-serif', // placeholder font
-                    fontWeight: "400"
-                    },
-                    '& .MuiOutlinedInput-input': {
-                    padding: '10px 12px', // inner padding for the text
-                    fontSize: '14px',     // optional font size
-                    },
+                        '& .MuiOutlinedInput-root': {
+                            borderRadius: '4px',
+                            fontSize: '16px',
+                            fontFamily: 'Poppins, sans-serif',
+                            color: "#42474E",
+                            '& fieldset': {
+                                borderWidth: '0.5px',
+                                borderColor: '#C4C4C4',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#999',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#000',
+                            },
+                        },
+                        '& .MuiInputBase-input::placeholder': {
+                            color: '#42474E',
+                            fontSize: '14px',
+                            fontFamily: 'Poppins, sans-serif',
+                            fontWeight: 400,
+                            opacity: 1,
+                        },
+                        '& input': {
+                            padding: '10px 12px',
+                            fontSize: '14px',
+                            color: '#42474E',
+                        },
                     }}
+                />
+
+            </div>
+
+
+            <Button variant="contained" sx={{
+                width: "100%",
+                bgcolor: "#1093FF",
+                borderRadius: "4px",
+                fontFamily: "Poppins",
+                textTransform: "none",
+                fontSize: "14px",
+                lineHeight: "20px",
+                fontWeight: "500",
+                boxShadow: 'none',
+                marginTop: "30px",
+                marginBottom: "25px",
+                py: "10px"
+            }}>
+                Sign In
+            </Button>
+
+            <FormControlLabel
+                sx={{
+                    alignItems: 'flex-start', // ✅ Aligns checkbox to top of label
+                    marginTop: '0px',
+                }}
+                control={
+                    <Checkbox
+                        checked={checked}
+                        onChange={(event) => setChecked(event.target.checked)}
+                        name="terms"
+                        icon={
+                            <Box
+                                sx={{
+                                    width: 16,
+                                    height: 16,
+                                    border: '2px solid #000',
+                                    borderRadius: '4px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                {/* Empty box (unchecked) */}
+                            </Box>
+                        }
+                        checkedIcon={
+                            <Box
+                                sx={{
+                                    width: 16,
+                                    height: 16,
+                                    border: '2px solid #000',
+                                    borderRadius: '4px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    backgroundColor: '#fff',
+                                }}
+                            >
+                                <CheckIcon sx={{ fontSize: 18, color: '#008853' }} />
+                            </Box>
+                        }
+                        sx={{
+                            padding: 0.8,
+                            marginRight: 0,
+                        }}
                     />
-                </div>
-
-
-                <Button variant="contained" sx = {{width: "100%",
-                    bgcolor: "#1093FF", 
-                    borderRadius: "4px", 
-                    fontFamily:"Poppins", 
-                    textTransform: "none",
-                    fontSize: "14px",
-                    lineHeight:"20px",
-                    fontWeight:"500",
-                    boxShadow: 'none',
-                    marginTop: "30px",
-                    marginBottom: "25px",
-                    py: "10px"}}>
-                        Sign In
-                </Button>
-
-                <FormControlLabel
-  sx={{
-    alignItems: 'flex-start', // ✅ Aligns checkbox to top of label
-    marginTop: '0px',
-  }}
-  control={
-    <Checkbox
-      checked={checked}
-      onChange={(event) => setChecked(event.target.checked)}
-      name="terms"
-      color="primary"
-      sx={{ mt: '2px' }} // optional tweak to align checkbox better
-    />
-  }
-  label={
-    <span style={{
-      fontFamily: 'Poppins, sans-serif',
-      fontSize: '11px',
-      color: '#808080',
-      fontWeight: 400,
-      lineHeight: '0.1',
-    }}>
-      Get the business security newsletter and emails from us with our latest announcements, product updates, events, and research opportunities. <a style={{color:"#1093FF"}}>Unsubscribe</a> any time.
-    </span>
-  }
-/>
+                }
+                label={
+                    <span style={{
+                        fontFamily: 'Poppins, sans-serif',
+                        fontSize: '11px',
+                        color: '#808080',
+                        fontWeight: 400,
+                        lineHeight: 1.2,
+                    }}>
+                        Get the business security newsletter and emails from us with our latest announcements, product updates, events, and research opportunities. <a style={{ color: "#1093FF" }}>Unsubscribe</a> any time.
+                    </span>
+                }
+            />
 
         </Box>
     );

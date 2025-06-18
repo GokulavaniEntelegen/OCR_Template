@@ -101,7 +101,7 @@ h2 {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5; // optional light background
+  background-color: #ffffff; // optional light background
 }
 
 .login-wrapper {
@@ -111,9 +111,10 @@ h2 {
   max-width: 1000px; // adjust based on your layout
   height: 80vh;
   background-color: #fff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
   overflow: hidden;
+  border: 1px solid #D2D2D2;
 }
 
 login-form label,
