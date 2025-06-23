@@ -10,7 +10,8 @@ function OtpLogin() {
   return (
     <Box
       sx={{
-        width: { xs: "100%", sm: "80%", md: "50%" }, // Responsive widths
+        // width: { xs: "100%", sm: "80%", md: "50%" }, // Responsive widths
+        flex : 1,
         p: { xs: 3, sm: 4, md: 8 }, // Responsive padding
         backgroundColor: "#fff",
         display: "flex",

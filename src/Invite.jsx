@@ -9,7 +9,7 @@ function Invite() {
     return(
         <Box
         sx={{
-            width: "50%",
+            flex: 1,
             p: 8,
             backgroundColor: "#fff",
             display: "flex",

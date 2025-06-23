@@ -5,7 +5,8 @@ const SetAccPassword = () => {
   return (
     <Box
       sx={{
-        width: "50%",
+        // width: "50%",
+        flex: 1,
         p: 11,
         backgroundColor: "#fff",
         display: "flex",

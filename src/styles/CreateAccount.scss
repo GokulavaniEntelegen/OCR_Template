@@ -4,11 +4,25 @@
     font-family: Poppins;
     font-weight: 400px;
     font-size: 22px;
+    align-items: flex-start;
 }
 
 .create {
     @include display-small;
     font-weight: 600;
     font-size: 32px;
+    align-items: flex-start;
 }
 
+@media (max-width: 978px) {
+  .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -24,10 +24,11 @@ const LoginRight = () => {
 
   return (
     <Box
+      className = "imagright"
       sx={{
-        width: "60%",
+        flex: 1,
         backgroundColor: "#E4F4FF",
-        display: "flex",
+        // display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",

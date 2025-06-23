@@ -1,7 +1,7 @@
 @use "../global_styles/typography.scss" as *;
 
 .emailotp {
-    @include display-medium;
+    @include display-small;
 }
 
 .simple2step {

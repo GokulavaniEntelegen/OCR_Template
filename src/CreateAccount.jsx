@@ -17,15 +17,17 @@ function CreateAccount() {
     return (
         <Box
             sx={{
-                width: "50%",
+                // width: "50%",
+                flex: 1,
                 p: 8,
                 backgroundColor: "#fff",
                 display: "flex",
                 flexDirection: "column",
-                // justifyContent: "center",
+                justifyContent: "center",
                 fontFamily: 'Poppins,sans-serif',
-                mb: 1,
-                alignItems: "flex-start",
+                mb: 2,
+                overflowY: "auto",
+                scrollbarWidth: "none"
             }}
         >
             <p className="welcome" style={{ marginBottom: "7px" }}>Welcome to Contract Books</p>
